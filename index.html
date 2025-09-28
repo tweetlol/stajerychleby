@@ -3,9 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Stajery Chleby Family Farm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: 'Lora', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fcf8f3; /* Light cream background */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #5c8d89; /* A muted teal */
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content Section */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+            gap: 40px; /* Space between elements */
+            align-items: center; /* Vertically align items */
+            justify-content: center; /* Center horizontally if space allows */
+            flex-grow: 1; /* Allows container to grow and push footer down */
+        }
+
+        /* Image Styling */
+        .farm-image {
+            flex: 1; /* Allows image to take up available space */
+            min-width: 300px; /* Minimum width before wrapping */
+            max-width: 450px; /* Max width for the image container */
+            border-radius: 15px; /* Slightly rounded corners */
+            overflow: hidden; /* Ensures image respects border-radius */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Soft, deep shadow */
+        }
+
+        .farm-image img {
+            width: 100%;
+            height: auto;
+            display: block; /* Removes extra space below image */
+            object-fit: cover; /* Ensures image covers area without distortion */
+            filter: brightness(0.95); /* Slightly reduces brightness for a softer look */
+            transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+        }
+
+        .farm-image img:hover {
+            transform: scale(1.03); /* Slight zoom on hover */
+        }
+
+        /* Quote and Text Styling */
+        .farm-content {
+            flex: 2; /* Allows content to take up more space */
+            min-width: 300px; /* Minimum width before wrapping */
+            max-width: 600px; /* Max width for content block */
+            background-color: #fff;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            text-align: center; /* Center align text */
+        }
+
+        .farm-content::before {
+            content: "“";
+            font-family: 'Playfair Display', serif;
+            font-size: 8em;
+            color: rgba(92, 141, 137, 0.2); /* Light, faded version of header teal */
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+
+        .farm-content p {
+            font-size: 1.5em;
+            font-style: italic;
+            color: #4a6c6a; /* Darker teal for quote */
+            margin-bottom: 1.5rem;
+            position: relative; /* To ensure it's above the pseudo-element */
+        }
+
+        .farm-content cite {
+            display: block;
+            font-size: 1.1em;
+            color: #777;
+            margin-top: 1rem;
+            font-style: normal;
+        }
+        
+        /* About Us Section */
+        .about-us {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background-color: #e8f5e9; /* Light green tint */
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .about-us h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #386641; /* Darker green */
+            margin-bottom: 1.5rem;
+        }
+
+        .about-us p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 1em;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #5c8d89; /* Matching header teal */
+            color: #e6e6e6;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: auto; /* Pushes footer to the bottom */
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .container {
+                flex-direction: column;
+                margin: 1rem auto;
+            }
+
+            .farm-image, .farm-content {
+                max-width: 90%; /* Adjust width for smaller screens */
+                min-width: unset; /* Remove min-width to allow shrinking */
+                padding: 2rem;
+            }
+
+            .farm-content p {
+                font-size: 1.3em;
+            }
+            
+            .about-us {
+                margin: 2rem auto;
+                padding: 2rem;
+            }
+
+            .about-us h2 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .farm-content p {
+                font-size: 1.1em;
+            }
+        }
+    </style>
 </head>
 <body>
-    Stáje Rychleby
+    <header>
+        <h1>Stajery Chleby Family Farm</h1>
+    </header>
+
+    <main class="container">
+        <section class="farm-image">
+            <img src="https://via.placeholder.com/400x600/a3be8c/ffffff?text=Our+Farm+Life" alt="A beautiful vertical picture of a family farm scene.">
+        </section>
+
+        <section class="farm-content">
+            <p>“To be a farmer is not merely to cultivate the soil, but to cultivate hope, to nurture life, and to live in harmony with the rhythm of the earth.”</p>
+            <cite>— Anonymous</cite>
+        </section>
+    </main>
+
+    <section class="about-us">
+        <h2>About Our Farm</h2>
+        <p>Welcome to Stajery Chleby Family Farm, where tradition meets nature. For generations, our family has poured love and dedication into cultivating the land, bringing fresh, wholesome produce and sustainable practices to our community.</p>
+        <p>We believe in honest work, healthy soil, and the simple joy of connecting people with the food they eat. Explore our story, discover our seasonal offerings, and experience the difference of a true family farm.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Stajery Chleby Family Farm. All rights reserved.</p>
+        <p>Handcrafted with love from our farm to your screen.</p>
+    </footer>
 </body>
 </html>
