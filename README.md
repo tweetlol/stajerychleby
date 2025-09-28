@@ -1,2 +1,0 @@
-# stajerychleby
-Stáje Rychleby ?
